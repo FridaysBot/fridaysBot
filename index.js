@@ -87,7 +87,7 @@ client.on('ready', () => {
         // When connecting to a Mongo database.
         // For more infomration view the "DATABASES" section
         // of this documentation.
-        .setMongoPath('mongodb+srv://EzE:fridaysBotDev1@cluster0.7fuar.mongodb.net/FridaysDB?retryWrites=true&w=majority')
+        .setMongoPath(process.env.MONGO_URI)
 })
 
 client.login(process.env.TOKEN)
