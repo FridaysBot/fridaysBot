@@ -15,6 +15,10 @@ module.exports = (client, message) => {
         const channel = member.guild.channels.cache.get(welcomeChannelId)
         channel.send(welcomeEmbed)
     })
-
-
 }
+
+module.exports.config = {
+    displayName: 'JoinLogs', // Can be changed any time
+    dbName: 'FridaysMongoDB', // Should be unique and NEVER be changed once set
+    loadDBFirst: false, // Wait for the database connection to be present
+  }
