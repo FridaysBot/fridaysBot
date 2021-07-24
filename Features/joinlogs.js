@@ -1,27 +1,25 @@
 const Discord = require('discord.js')
 
 module.exports = (client, instance) => {
-
-    client.on('guildMemberAdd', (member) => {
-
-        const welcomeEmbed = new Discord.MessageEmbed()
-        .setTitle('New Member Joined!')
-        .setColor('GREEN')
-        .setThumbnail('https://cdn.discordapp.com/attachments/782634444028772354/868546582629482586/1200px-Emoji_u1f44b.png')
-        .setDescription(`Welcome, <@${member.id}> to ${member.guild}! Please enjoy your stay and remember to read our rules.`)
-        .setTimestamp()
-
-        const channel = guild.channels.cache.find(
-            (channel) => channel.name === "welcome"
-          )
-
-          if (!channel) {
-            return
-          }
-
-        channel.send(welcomeEmbed)
+    // Listen for new members joining a guild
+    client.on("guildMemberAdd", (member) => {
+      // Access the guild that they joined
+      const { guild } = member
+  
+      // Get the channel named "welcome"
+      const channel = guild.channels.cache.find(
+        (channel) => channel.name === "welcome"
+      )
+      
+      // Ensure this channel exists
+      if (!channel) {
+        return
+      }
+  
+      // Send the welcome message
+      channel.send(`Welcome ${member} to the server!`)
     })
-}
+  }
 
 module.exports.config = {
     displayName: 'JoinLogs', // Can be changed any time
