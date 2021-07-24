@@ -94,7 +94,7 @@ client.on('guildMemberAdd', (member, message) => {
     
     const welcomeChannelId = '730909385622290513'
 
-    const welcomeEmbed = new Discord.MessageEmbed()
+    const welcomeEmbed = new DiscordJS.MessageEmbed()
     .setTitle('New Member Joined!')
     .setColor('GREEN')
     .setThumbnail('https://cdn.discordapp.com/attachments/782634444028772354/868546582629482586/1200px-Emoji_u1f44b.png')
