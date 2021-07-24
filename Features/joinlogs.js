@@ -1,7 +1,6 @@
 const Discord = require('discord.js')
-const welcomeChannelId = '730909385622290513'
 
-module.exports = (client, message, instance) => {
+module.exports = (client, instance) => {
 
     client.on('guildMemberAdd', (member) => {
 
@@ -9,10 +8,17 @@ module.exports = (client, message, instance) => {
         .setTitle('New Member Joined!')
         .setColor('GREEN')
         .setThumbnail('https://cdn.discordapp.com/attachments/782634444028772354/868546582629482586/1200px-Emoji_u1f44b.png')
-        .setDescription(`Welcome, <@${member.id}> to ${message.guild}! Please enjoy your stay and remember to read our rules.`)
+        .setDescription(`Welcome, <@${member.id}> to ${member.guild}! Please enjoy your stay and remember to read our rules.`)
         .setTimestamp()
 
-        const channel = member.guild.channels.cache.get(welcomeChannelId)
+        const channel = guild.channels.cache.find(
+            (channel) => channel.name === "welcome"
+          )
+
+          if (!channel) {
+            return
+          }
+
         channel.send(welcomeEmbed)
     })
 }
