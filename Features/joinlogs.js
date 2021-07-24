@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const welcomeChannelId = '730909385622290513'
 
-module.exports = (client, message) => {
+module.exports = (client, message, instance) => {
 
     client.on('guildMemberAdd', (member) => {
 
